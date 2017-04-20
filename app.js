@@ -4,8 +4,8 @@ App({
   globalData: {
     domainUrl: 'gs.handkoologin.com',// 项目域名
     hasLogin: false,
-    AppID: 'wx63b7015418f7ac94',// APPid
-    AppSecret: 'baaff96255cb3960648454471f8e226f',
+    AppID: '#################',// APPid
+    AppSecret: '########################',
     caseId: '',
     username: '', 
     lock: false,// 是否锁定socket
