@@ -1,0 +1,14 @@
+<template name="header">
+  <view class="page-header">
+    <view class="top_01">
+       <view class="top_02">
+         <view class="top_03">
+         <!--
+            <view class="top_04">
+            </view>
+         -->
+         </view>
+       </view>
+    </view>
+  </view>
+</template>

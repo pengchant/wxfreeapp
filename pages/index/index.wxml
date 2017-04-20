@@ -1,0 +1,178 @@
+
+<!--index.wxml-->
+<import src="../common/header.wxml" />
+
+<!-- 这边引入头部的文件页面 -->
+<view style="border:solid 1px blue;">
+  <template is="header" data="" />
+</view>
+
+<!-- 提示向左滑动退出登录 -->
+<view style="position:absolute;z-index:10000;left:50%;top:40px;margin-left:-60px;text-align:center;width:120px;">
+  <image src="../../resources/img/sign-left-icon.png" style="width:20px;height:20px;display:inline-block;float:left;"></image>
+  <view style="font-size:12px;line-height:20px;color:#356D9E;float:left;">向左滑动退出登录</view>
+</view>
+
+<!-- 主体内容部分 -->
+<view style="height:100%;width:100%; background:#EAEAEA;position:fixed" bindtap="handletap" bindtouchstart="handletouchtart" bindtouchend="handletouchend">
+
+  <!-- scroll-view的部分，消息的部分 -->
+  <scroll-view scroll-y="true" style="height:80%;" class="container" scroll-top="{{scrollTopVal}}" catchtap="hiddechatting">
+
+    <!--静态文本部分 -->
+    <view style="width:100%; position:relative;">
+      <view class="service-header">
+        <image src="/image/service_05.png" style="width:3.5em;height:3.5em"></image>
+      </view>
+      <view class="hesun" style="font-size:16px;">审核员-客服</view>
+      <view class="service-msg-text">
+        <view class="left_triangle"></view>
+        <view class="textMsg" style="font-size:16px;">亲爱的用户，我是您的理赔专员，我将全程帮助您自助理赔，竭诚为您服务。</view>
+      </view>
+    </view>
+
+    <!-- 清除浮动 -->
+    <view style="clear:both;"></view>
+
+    <!-- 加载消息的部分 -->
+    <view style="width:100%; position:relative;">
+      <block wx:for="{{messageList}}" wx:key="chatTime" wx:for-item="message">
+
+        <!-- 清除浮动 -->
+        <view style="clear:both;"></view>
+        <view style="margin:5px 30%; padding:10px; color:green; font-size:12px;">{{message.chatTime}}</view>
+
+        <!-- 客户 -->
+        <view wx:if="{{message.senderType==1}}">
+
+          <!-- 如果是文本 -->
+          <view wx:if="{{message.messageType==1}}">
+            <view class="service-header">
+              <image src="/image/service_05.png" style="width:3.5em;height:3.5em"></image>
+            </view>
+            <view class="hesun" style="font-size:16px;">审核员-客服</view>
+            <view class="service-msg-text">
+              <view class="left_triangle"></view>
+              <view class="textMsg" style="font-size:16px;">{{message.messageValue}}</view>
+            </view>
+          </view>
+
+          <!-- 如果是图片 -->
+          <view wx:if="{{message.messageType==2}}">
+            <view class="service-header">
+              <image src="/image/service_05.png" style="width:3.5em;height:3.5em"></image>
+            </view>
+            <view class="hesun" style="font-size:16px;">审核员-客服</view>
+            <view class="service-msg-image">
+              <view class="left_triangle"></view>
+              <image src="{{message.imageUrl}}" style="width:3.5em;height:3.5em" data-image_src="{{message.imageUrl}}" bindtap="previewImage"></image>
+            </view>
+          </view>
+        </view>
+
+        <!-- 客服 -->
+        <view wx:if="{{message.senderType==0}}">
+
+          <!-- 如果是语音 -->
+          <view wx:if="{{message.messageType==3}}" class="client-image-msg">
+            <view class="client-header" style="position:relative;">
+              <image src="/image/client_05.png" style="width:3.0em;height:3.0em"></image>
+              <view class="right_triangle right_triangle_image" style="position:absolute;left:-10px;top:15px;border-color: transparent transparent transparent #9EE656;"></view>
+            </view>
+
+            <!-- 通过wxml设置data-[参数名]传递参数，[参数名]只能是小写，不能有大写 -->
+            <image src="/image/voice.png" style="width:5em;height:2.5em;border-radius:2px;margin-top:5px;margin-right:-2px;" data-voice_src="{{message.imageUrl}}" catchtap="playVoice"></image>
+          </view>
+
+          <!-- 如果是图片 -->
+          <view wx:if="{{message.messageType==2}}" class="client-image-msg">
+            <view class="client-header">
+              <image src="/image/client_05.png" style="width:3.0em;height:3.0em"></image>
+              <view class="right_triangle right_triangle_image"></view>
+            </view>
+
+            <!-- 通过wxml设置data-[参数名]传递参数，[参数名]只能是小写，不能有大写 -->
+            <image src="{{message.imageUrl}}" style="width:3.5em;height:3.5em" data-image_src="{{message.imageUrl}}" bindtap="previewImage"></image>
+          </view>
+
+          <!-- 如果是录像 -->
+          <view wx:if="{{message.messageType==8}}" class="client-image-msg">
+            <view class="client-header">
+              <image src="/image/client_05.png" style="width:3.0em;height:3.0em"></image>
+              <view class="right_triangle right_triangle_image"></view>
+            </view>
+
+            <!-- 通过wxml设置data-[参数名]传递参数，[参数名]只能是小写，不能有大写 -->
+            <image src="../../resources/img/videoeditor.png" style="width:3.5em;height:3.5em;background-color:white;" data-video_src="{{message.imageUrl}}" bindtap="previewVideo"></image>
+          </view>
+
+          <!-- 如果是文本 -->
+          <view wx:if="{{message.messageType==1}}" class="client-image-msg">
+            <view class="client-header">
+              <image src="/image/client_05.png" style="width:3.0em;height:3.0em"></image>
+              <view class="right_triangle right_triangle_text"></view>
+            </view>
+            <view style="float: right; background-color: white;margin: 0; padding: 10px 0px 10px 10px; border-radius: 7px;max-width: 58%; max-height: 300px;">
+              <view style="margin-right: 5px;max-height: 250px;width: 100%;display: inline-block;word-break:break-all;">{{message.messageValue}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <!-- 切换到理赔专员界面 -->
+    <view class="changeToS" bindtap="changeToService">
+      <image src="/image/changeToPhoto.png" style="width:80px;height:80px;"></image>
+      <image src="/image/hongdian.png" style="position:absolute;right:0px;top:0px;display:none;"></image>
+      <image src="/image/hongdian.png" style="position:absolute;right:0px;top:0px;width:29px;height:29px;"></image>
+      <view style="display:inline-block;position:absolute;right:10px;top:0;color:white;">{{0}}</view>
+    </view>
+  </scroll-view>
+
+  <!-- 页脚 -->
+  <view class="footer">
+    <view class='operate-item1'>
+      <view class='messageView'>
+        <textarea class='message-textarea' placeholder='输入框...' maxlength="256" cols="10" rows="8" id="message" bindinput="getTextValue" value='{{textValue}}' />
+      </view>
+      <view class='btnView'>
+        <button class="send-btn" bindtap="sendText">发送</button>
+      </view>
+      <view class='jiaView'>
+        <image src="/image/jia.png" class="jia" catchtap="clickEvent"></image>
+      </view>
+    </view>
+    <view wx:if="{{isClickPlus}}" class="operate-item2">
+      <view class="photoView">
+        <image src="/image/photo.png" class="footImg" catchtap="addImage"></image>
+        <view class="footText" >照片</view>
+      </view>
+      <view class="chatView">
+        <image src="/image/chat.png" class="footImg" catchtap="addRecord"></image>
+        <view class="footText">加载记录</view>
+      </view>
+      <view class="chatView" bindtouchend="touchup" bindtouchstart="touchdown">
+        <image src="/image/record_nor.png" class="footImg" ></image>
+        <view class="footText">语音</view>
+      </view>
+      <view class="chatView" catchtap="chooseVideo">
+        <image src="/image/video_nor.png" class="footImg" ></image>
+        <view class="footText">视频</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 显示弹出框框区域 -->
+  <view wx:if="{{isShadow}}">
+    <view class="shadowView"></view>
+    <view class="confirmView">
+      <view style='height: 75px; margin-top: 10px;'>
+        <image src="/image/queren.png" style="width:40px; height:40px;"></image>
+      </view>
+      <view style='text-align: center; display: block; font-size: 15px; line-height: 23px; word-wrap: break-word; box-sizing: border-box; color: rgb(77, 77, 77); font-family: my;'>请输入文字</view>
+      <view style='margin-top: 20px; display: -webkit-box; padding-top: 10px; border-top-width: 1px; border-top-style: solid; border-top-color: rgb(224, 224, 224); color: rgb(94, 191, 229); padding-bottom: 10px;'>
+        <view style='text-align: center; line-height: 18px; font-size: 16px; letter-spacing: 2px; -webkit-box-flex: 1;' bindtap="cancelShadow">确定</view>
+      </view>
+    </view>
+  </view>
+</view>

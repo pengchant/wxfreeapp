@@ -1,0 +1,28 @@
+/*弹出框区域*/
+.shadowView{
+  position: fixed;
+  z-index: 9998;
+  top: 0px;
+  width: 100%;
+  opacity: 0.6;
+  height: 100%;
+  background: black;
+}
+.confirmView{
+    text-align: center;
+    max-width: 180px;
+    min-height: 100px;
+    position: absolute;
+    z-index: 9999;
+    box-sizing: border-box;
+    min-width: 225px;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 15px 0px 0px;
+    border: 1px solid rgb(190, 190, 190);
+    box-shadow: rgb(90, 90, 90) 0px 0px 5px;
+    left: 76px;
+    top: 250px;
+    opacity: 1;
+    background: white;
+}

@@ -1,0 +1,42 @@
+<!--index.wxml-->
+<import src="../common/header.wxml" />
+<template is="header" data="" />
+
+<view style="background:#EAEAEA; height: 630px;">
+  <image src='/image/recharge_volume.png' style="width:1.5rem;height:1.5rem;top:50px;position:absolute;left:20px;"></image>
+    <view style="top:60px;position:absolute;font-size:12px;color:red;left:50px;">
+    请输入报案手机号查询正在处理的案件
+    </view>
+
+    <view style="top:40%;position:relative;font-size:12px;height:35px;">
+        <view style="position:absolute; width:100px; height:35px; margin-left:20%; font-size:12px; padding:15px;">手机号</view>
+        <view style="position:absolute; right:95px;">
+            <input style="height:35px; width:120px; font-size:20px; border-radius: 20px; padding-left: 10px; background:white; border:1px solid #333;" bindinput="getTextValue" value="{{textValue}}"/>
+        </view>
+
+        <view style="position:relative;top:80px; margin-left:120px;z-index:3;"  bindtap="checkCaseByMobile">
+            <view style="position:absolute; top:10px; left:50px; width:100px; z-index:2; font-size:12px;">案件查询</view>
+            <image style="position:absolute;width:150px; height:35px;" src='/image/bg23.png'></image>
+            <!--<button type="primary">案件查询</button>-->
+        </view>
+
+    </view>
+</view>
+
+
+<!-- 显示弹出框框区域 -->
+  <view wx:if="{{isShadow}}">
+    <view class="shadowView"></view>
+    <view class="confirmView">
+      <!--
+      <view style='height: 75px; margin-top: 10px; background: url("/image/queren.png") 50% 0% / 60px no-repeat;'></view>
+      -->
+      <view style='height: 75px; margin-top: 10px;'> 
+        <image src="/image/queren.png" style="width:40px; height:40px;"></image>
+      </view>
+      <view style='text-align: center; display: block; font-size: 15px; line-height: 23px; word-wrap: break-word; box-sizing: border-box; color: rgb(77, 77, 77); font-family: my;'>没有该手机号的相关案件，请先电话报案！</view>
+      <view style='margin-top: 20px; display: -webkit-box; padding-top: 10px; border-top-width: 1px; border-top-style: solid; border-top-color: rgb(224, 224, 224); color: rgb(94, 191, 229); padding-bottom: 10px;'>
+        <view style='text-align: center; line-height: 18px; font-size: 16px; letter-spacing: 2px; -webkit-box-flex: 1;' bindtap="cancelShadow">确定</view>
+      </view>
+    </view>
+  </view>

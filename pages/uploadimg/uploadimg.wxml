@@ -1,0 +1,97 @@
+
+<!-- 引入相关的wxml页面 -->
+<import src="/pages/common/common.wxml" />
+
+<!-- 页面的主体内容 -->
+<view class="wrapper" style="background-color: #EAEAEA;width:100%;height:100%;width:100%;height:100%;">
+  <import src="../common/header.wxml" />
+  <template is="header" data="" />
+
+  <!-- 切换到理赔专员界面 -->
+  <view class="changToS" bindtap="changeToService">
+    <image src="../../resources/img/servicer.png" style="width:80px;height:80px" id="imgChange"></image>
+    <img src="../../resources/img/hongdian.png" style="position: absolute;right: 0px;top: 0px;display:none" id="hongdian" />
+    <img src="../../resources/img/hongdian.png" style="position: absolute;right: 0px;top: 0px;display:none" id="hongdianChat" />
+    <view id="passNum" style="display: inline-block;position: absolute;right: 10px;top: 0;color: white;"></view>
+  </view>
+
+  <!-- 拍照取证 -->
+  <view id="takePhoto">
+    <view id="contentPhoto" style="background:#EAEAEA;">
+      <view id="photoPics" style="padding-left:0px;">
+        <view class="fontStyle" style="font-size: 14px;position:relative;top:40px">
+          <view class="fontStyle" style="margin-bottom:0px;line-height:40px">温馨提示：按照以下步骤拍摄取证照片！</view>
+        </view>
+        <view style="clear:both;height:20px;"></view>
+
+        <!-- 这里是模板区域 -->
+        <block wx:key="mubanid" wx:for="{{mubanImgList}}" wx:for-item="img">
+          <view val="0">
+
+            <!-- 1.如果已经拍摄了，审核中... -->
+            <view class="imgStyle1" wx:if="{{img.hasPassed==0&&img.isTooked==1}}" style="background: transparent url(../../resources/img/back.png) no-repeat scroll 0% 0%;" data-imgid="{{img.mubanid}}" data-title="{{img.title}}">
+              <view style="padding-top:40px;">
+                <image src="../../resources/img/checking.png" mode="center" style="height:70px;"></image>
+              </view>
+              <view class="checking">待审核</view>
+
+              <!-- 重新拍摄图片的按钮 -->
+              <view class="arrowleft" catchtap="uploadmoduleimg" data-imgid="{{img.mubanid}}" data-title="{{img.title}}">重新拍摄</view>
+
+              <!-- 预览图片的按钮 -->
+              <view class="arrowright" data-imgurl="{{img.imageUrl}}" catchtap="preview">预览图片</view>
+            </view>
+
+            <!-- 2.如果已经拍摄了了，并且审核已经通过了 -->
+            <view class="imgStyle1" wx:if="{{img.hasPassed==1&&img.isTooked==1}}" style="background: transparent url(../../resources/img/back.png) no-repeat scroll 0% 0%;">
+              <view style="padding-top:40px;">
+                <image src="../../resources/img/pass.png" mode="center" style="height:70px;"></image>
+              </view>
+              <view class="checking" style="color: #02cf97;font-weight: bold;">审核通过</view>
+
+              <!-- 预览图片的按钮 -->
+              <view class="arrowright" data-imgurl="{{img.imageUrl}}" catchtap="preview">预览图片</view>
+            </view>
+
+            <!--3.如果已经拍摄了了，并且审核未通过-->
+            <view class="imgStyle1" wx:if="{{img.hasPassed==2&&img.isTooked==1}}" style="background: transparent url(../../resources/img/back.png) no-repeat scroll 0% 0%;">
+              <view style="padding-top:40px;">
+                <image src="../../resources/img/unpass.png" mode="center" style="height:70px;"></image>
+              </view>
+              <view class="checking" style="color: #f43530; font-weight: bold;">审核不通过</view>
+
+              <!-- 重新拍摄图片的按钮 -->
+              <view class="arrowleft" catchtap="uploadmoduleimg" data-imgid="{{img.mubanid}}" data-title="{{img.title}}">重新拍摄</view>
+
+              <!-- 预览图片的按钮 -->
+              <view class="arrowright" data-imgurl="{{img.imageUrl}}" catchtap="preview">预览图片</view>
+            </view>
+
+            <!--显背景图片（上传图片的实现） -->
+            <image style="width:100%;" src="{{img.imageUrl}}" class="imgStyle" mode="scaleToFill" catchtap="uploadmoduleimg" data-imgid="{{img.mubanid}}" data-title="{{img.title}}"></image>
+            <view class="fontStyle" style="font-size: 18px;padding-top:3px;display:block;">{{img.mubanTitle}}</view>
+          </view>
+        </block>
+
+        <!-- 这里实现图片的动态上传 -->
+        <block class="liStyle" wx:key="id" wx:for="{{sunshiImage}}" wx:for-item="img">
+          <view val="0">
+            <image id="uploadPicAdd" style="width:100%;" src="{{img}}" class="imgStyle2" mode="scaleToFill" data-current="{{img}}" data-imgurls="{{sunshiImage}}" catchtap="previewAll"></image>
+            <view class="fontStyle" style="font-size: 18px;padding-top:3px;display:block;">损失部位（需要横拍）</view>
+          </view>
+        </block>
+
+        <!-- 点击上传图片的按钮 -->
+        <view id="photoLiAdd" val="0" style="margin-bottom:70px;">
+          <image id="uploadPicAdd" bindtap="createImg" src="../../resources/img/add3x.png" class="imgStyle2" mode="aspectFit"></image>
+          <view class="fontStyle" style="font-size: 18px;">损失部位（需要横拍）</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 页脚部分 -->
+    <view id="footerPhoto">
+      <button class="send-btn" data-inline="true" id="getPhotos" style="color: white;background: #FE8B2E;position:fixed;bottom:0px;border: none;height: 50px;width:100%;margin-top: 35px;font-weight:bold" bindtap="changeToService">完成拍照</button>
+    </view>
+  </view>
+</view>

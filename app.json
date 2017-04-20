@@ -1,0 +1,15 @@
+{
+  "pages":[  
+    "pages/mobile/mobile", 
+    "pages/index/index",
+    "pages/uploadimg/uploadimg",     
+    "pages/servicer/servicer",
+    "pages/video/video" 
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "宜车帮",
+    "navigationBarTextStyle":"black"
+  }
+}

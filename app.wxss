@@ -1,0 +1,132 @@
+/**app.wxss**/
+/**
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}*/ 
+.page-header{
+  height: 40px;
+	background: white;
+	position: fixed;
+	width: 100%;
+	z-index: 5;
+	top:0px;
+}
+.top1 {
+  height: 40px;
+	background: white;
+}
+.top_01, .top_02, .top_03, .top_04 {
+	position: relative;
+	height: 40px;
+	width: 35%;
+	display: inline-block;
+}
+.top_01 {
+	background: url("/image/green.png") no-repeat;
+	background-size: 100% 100%;
+}
+.top_02 {
+	background: url("/image/green1.png") no-repeat;
+	background-size: 100% 100%;
+}
+.top_03 {
+	background: url("/image/yellow.png") no-repeat;
+	background-size: 100% 100%;
+}
+.top_04 {
+	background: url("/image/yellow.png") no-repeat;
+	background-size: 100% 100%;
+}
+.top_01::before {
+  content: "1.已绑定";
+  position: absolute;
+  color: white;
+  height: 40px;
+  left: 0px;
+  width: 100%;
+  top: 0px;
+  line-height: 37px;
+  font-size: 13px;
+  padding-left: 10%;
+}
+.top_02::before {
+  content: "2.已报案";
+  position: absolute;
+  color: white;
+  height: 40px;
+  left: 0px;
+  width: 100%;
+  top: 0px;
+  line-height: 37px;
+  font-size: 13px;
+  padding-left: 10%;
+}
+.top_03::before {
+  content: "3.拍照取证";
+  position: absolute;
+  color: white;
+  height: 40px;
+  left: 0px;
+  width: 80%;
+  top: 0px;
+  line-height: 37px;
+  font-size: 13px;
+  padding-left: 10%;
+}
+.top_04::before {
+  content: "4.定损单";
+  position: absolute;
+  color: white;
+  height: 40px;
+  left: 0px;
+  width: 80%;
+  top: 0px;
+  line-height: 37px;
+  font-size: 13px;
+  padding-left: 10%;
+}
+.top_02 {
+  width: 100%;
+  margin-left: 93%;
+}
+.top_03 {
+  width: 100%;
+  margin-left: 94%;
+}
+.top_04 {
+  width: 100%;
+  margin-left: 94%;
+}
+
+/**模板中的样式设计*/
+.templateView{
+  position:relative;
+  float:left;
+  width:35%;
+  height:40px;
+}
+/*文字描述*/
+.templateText{
+  position:absolute;
+  display:inline-block;
+  color: white;
+  height: 40px;
+  left: 0px;
+  width: 100%;
+  top: 0px;
+  line-height: 37px;
+  font-size: 13px;
+  padding-left: 10%;
+}
+/*图片描述*/
+.templateImage{
+  width:100%;
+  height:40px;
+}
+

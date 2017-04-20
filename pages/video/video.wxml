@@ -1,0 +1,5 @@
+<view style="width:100%;height:100%;position:fixed;background:#eaeaea;text-align:center;">
+    <view style="width:100%;height:100%;position:relative;">
+        <video autoplay="true" style="width:100%;margin-top:120px;" src="{{url}}"   controls ></video>
+    </view>
+</view>

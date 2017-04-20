@@ -1,0 +1,16 @@
+<template name="header">
+  <view class="page-header">
+    <view class="templateView" style="margin-left:1px;">
+      <view class="templateText">1.已绑定</view>
+      <image src="/image/green.png" class="templateImage"></image>
+    </view>
+     <view class="templateView" style="margin-left:-10px;">
+      <view class="templateText">2.已报案</view>
+       <image src="/image/green1.png" class="templateImage"></image>
+     </view>
+    <view class="templateView" style="margin-left:-10px;">
+     <view class="templateText">3.拍照取证</view>
+      <image src="/image/yellow.png" class="templateImage"></image>
+    </view>
+  </view>
+</template>

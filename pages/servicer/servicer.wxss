@@ -1,0 +1,29 @@
+.contentPhoto{
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    height: 540px;
+    overflow-y: auto;
+    background: #EAEAEA;
+}
+
+.fontStyle{
+    color:#FE8B2E;
+    background:#EAEAEA;
+    text-align: center;
+    line-height: 5px;
+    margin-bottom: 20px;
+    height:20px;
+}
+.footerPhoto{
+    width:100%;
+    position: fixed;
+    bottom: 0;
+}
+.changeToS{
+  position: fixed;
+  right: 0;
+  top: 50%;
+  z-index: 5;
+  height: 80px;
+}

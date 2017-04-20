@@ -1,0 +1,29 @@
+<import src="../common/header.wxml" />
+<template is="header" data=""/>
+
+<view style="background: #EAEAEA;">
+    <view class="contentPhoto">
+        <view style="font-size:14px;position:relative;width:100%; height:198px">
+            <view class="fontStyle" style="margin-bottom:0px;line-height:20px">温馨提示：按照以下步骤拍摄取证照片！</view>
+            <view style="width:100%; height:196px" bindtap="addImage">
+                <block wx:for="{{imageList}}" wx:for-item="image">
+                    <view>
+                        <image src="{{image}}" style="width:100%;height:187px;" data-src="{{image}}"></image>
+                </view>
+                <view class="fontStyle" style="font-size: 18px;">损失部位（需要横拍）</view>
+                </block>
+                <image src="/image/add3x.png" style="width:100%;height:100%"></image>
+                <view class="fontStyle" style="font-size: 18px;">损失部位（需要横拍）</view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 切换到理赔专员界面 -->
+    <view class="changeToS" bindtap="changeToService">
+        <image src="/image/servicer.png" style="width:80px;height:80px;"></image> 
+    </view>
+
+    <view class="footerPhoto">
+        <button class="send-btn" style="color: white;background: #FE8B2E;border: none;height: 50px;width:100%;margin-top: 35px;font-weight:bold" bindtap="changeToService">完成拍照</button>
+    </view>
+</view>

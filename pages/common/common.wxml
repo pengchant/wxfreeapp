@@ -1,0 +1,23 @@
+
+<!-- 1.定义的网页头部文件 -->
+<template name="header">
+  <view class="top">
+    <view class="top_01">
+      <image class="imghead" src="../../resources/img/green.png"></image>
+    </view>
+    <view class="top_02">
+      <image class="imghead" src="../../resources/img/green1.png"></image>
+    </view>
+    <view class="top_03">
+      <image class="imghead" src="../../resources/img/yellow.png"></image>
+    </view>
+  </view>
+</template>
+
+<!-- 2.定义的拍摄照片模板-->
+<template name="imgShow">
+  <view val="0">
+    <image style="width:100%;" src="{{url}}" class="imgStyle2" mode="scaleToFill"></image>
+    <view class="fontStyle" style="font-size: 18px;padding-top:3px;">损失部位（需要横拍）</view>
+  </view>
+</template>

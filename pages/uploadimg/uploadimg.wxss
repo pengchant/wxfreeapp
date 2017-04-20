@@ -1,0 +1,71 @@
+/**index.wxss**/
+
+.fontStyle {
+  color: #fe8b2e;
+  background: #eaeaea;
+  text-align: center;
+  line-height: 5px;
+  margin-bottom: 20px;
+}
+
+.changToS {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  z-index: 5;
+  height: 80px;
+}
+
+.imgStyle2 {
+  width: 100%;
+  height: 189px;
+}
+
+.liStyle {
+  position: relative;
+  margin-bottom: 15px;
+  top: 30px;
+}
+
+.imgStyle {
+  width: 100%;
+  height: 187px;
+}
+
+.checking {
+  color: #f68a42;
+  font-weight: bold;
+}
+
+.imgStyle1 {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 187px;
+}
+
+.arrowleft {
+  margin-left: 20px;
+  width: 80px;
+  color: white;
+  text-align: center;
+  float: left;
+  font-size: 16px;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 3px;
+  margin-top: 10px;
+}
+
+.arrowright {
+  margin-right: 20px;
+  float: right; 
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  width: 80px;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 3px;
+  margin-top: 10px;
+}

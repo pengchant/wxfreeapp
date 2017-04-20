@@ -1,0 +1,220 @@
+/**index.wxss**/
+
+.container {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  box-sizing: border-box;
+  height: 72%;
+}
+
+.service-header {
+  float: left;
+  margin-right: 0.5em;
+  width: 3em;
+  height: 3em;
+  text-align: center;
+  font-size: 1em;
+}
+
+.hensun {
+  margin-bottom: 10px;
+  font-size: 4px;
+}
+
+.service-msg-text {
+  float: left;
+  margin: 0 20px 10px 15px;
+  padding: 0px 10px 10px 0px;
+  border-radius: 7px;
+  max-width: 58%;
+  max-height: 300px;
+  background-color: white;
+}
+
+.service-msg-image {
+  float: left;
+  margin: 0 20px 10px 15px;
+  padding: 0px 10px 10px 0px;
+  border-radius: 7px;
+  max-width: 58%;
+  max-height: 300px;
+}
+
+.left_triangle {
+  height: 0px;
+  width: 0px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent white transparent transparent;
+  position: relative;
+  left: -16px;
+  top: 15px;
+}
+
+.textMsg {
+  margin-left: 5px;
+  max-height: 250px;
+  overflow-y: auto;
+  width: 100%;
+  display: inline-block;
+}
+
+.client-header {
+  float: right;
+  margin-left: 0.5em;
+  width: 3em;
+  height: 3em;
+  text-align: center;
+  font-size: 1em;
+}
+
+.right_triangle {
+  height: 0px;
+  width: 0px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent transparent white;
+  position: relative;
+  top: -48px;
+}
+
+.right_triangle_text {
+  right: 10px;
+}
+
+.right_triangle_image {
+  right: 8px;
+}
+
+.client-image-msg {
+  float: right;
+  margin: 0 10px 10px 15px;
+  padding: 0px 0px 0px 0px;
+  border-radius: 7px;
+  max-width: 58%;
+}
+
+.changeToS {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  z-index: 5;
+  height: 80rpx;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  width: 100%;
+}
+
+.operate-item1 {
+  flex-direction: row;
+  display: flex;
+}
+
+.messageView {
+  display: flex;
+  width: 80%;
+}
+
+.message-textarea {
+  margin: 0.5em;
+  margin-right: 4em;
+  border: 1px rgb(160, 166, 214) solid;
+  word-wrap: break-word;
+  height: 40px;
+  max-height: 80%;
+  border-radius: 4px;
+  float:left;
+}
+
+.btnView {
+  display: flex;
+  width: 25%;
+  margin-left: -22%;
+}
+
+.send-btn {
+  color: white;
+  background: #38b0de;
+  border: none;
+  height: 40px;
+  width: 100%;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.jiaView {
+  display: flex;
+  width: 12%;
+  margin-left: 2%;
+}
+
+.jia {
+  width: 100%;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 3px;
+}
+
+.photoView {
+  display: inline-block;
+  width: 60px;
+  height: 40px;
+  margin-left: 20rpx;
+  text-align: center;
+}
+
+.chatView {
+  display: inline-block;
+  width: 60px;
+  height: 40px;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.footText{
+  text-align:center;
+  font-size:0.7em;
+}
+
+.footImg{
+  width:3em;
+  height:3em;
+}
+
+/*弹出框区域*/
+
+.shadowView {
+  position: fixed;
+  z-index: 9998;
+  top: 0px;
+  width: 100%;
+  opacity: 0.6;
+  height: 100%;
+  background: black;
+}
+
+.confirmView {
+  text-align: center;
+  max-width: 180px;
+  min-height: 100px;
+  position: absolute;
+  z-index: 9999;
+  box-sizing: border-box;
+  min-width: 225px;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 15px 0px 0px;
+  border: 1px solid rgb(190, 190, 190);
+  box-shadow: rgb(90, 90, 90) 0px 0px 5px;
+  left: 76px;
+  top: 250px;
+  opacity: 1;
+  background: white;
+}
